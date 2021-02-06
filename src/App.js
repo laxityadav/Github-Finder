@@ -22,7 +22,7 @@ const App = () => {
             <Navbar />
             <div className='container'>
               <Alert />
-              <Switch>
+              <Switch>    {/*Switch is used to execute one Route at a time*/}
                 <Route exact path='/' component={Home} />
                 <Route exact path="/about" component={About} />
                 <Route exact path="/user/:login" component={User} />

@@ -16,7 +16,7 @@ if (process.env.NODE_ENV !== 'production') {
 }
 
 const GithubState = props => {
-    const initialState = {
+    const initialState = {   //initialState shows the initial values for the global variables
         users: [],
         user: {},
         repos: [],
@@ -32,8 +32,8 @@ const GithubState = props => {
         const res = await axios.get(`https://api.github.com/search/users?q=${text}&client_id=${githubClientId}&client_secret=
             ${githubClientSecret}`);
 
-        dispatch({
-            type: SEARCH_USERS,
+        dispatch({          //This will dispatch the data and go to GithubReducer and it will be responsible for seding the data
+            type: SEARCH_USERS,    //to the components.
             payload: res.data.items
         });
     }
@@ -71,7 +71,7 @@ const GithubState = props => {
     const setLoading = () => dispatch({ type: SET_LOADING });
 
     return <GithubContext.Provider
-        value={{
+        value={{            //contains the values of the global variables
             users: state.users,
             user: state.user,
             repos: state.repos,
